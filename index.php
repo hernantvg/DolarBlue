@@ -58,9 +58,9 @@
 
             let result = "";
             if (conversionDirection === "usdToArs") {
-                result = `ARS: ${(amount * compraRate).toFixed(2)}`;
+                result = `ARS: ${Math.floor(amount * compraRate)}`;
             } else if (conversionDirection === "arsToUsd") {
-                result = `USD: ${(amount / ventaRate).toFixed(2)}`;
+                result = `USD: ${Math.floor(amount / ventaRate)}`;
             }
 
             document.getElementById("result").innerText = result;
