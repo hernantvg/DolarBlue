@@ -48,7 +48,6 @@
                 <div class="card bg-success mt-3">
                     <div class="card-body text-white">
                         <p id="result"></p>
-                        <p>Con <span id="inputAmount">$4.00 Dólares</span> obtienes <span id="outputAmount">$2,880 Pesos</span>.</p>
                     </div>
                 </div>
             </div>
@@ -66,14 +65,12 @@
             let result = "";
             if (conversionDirection === "usdToArs") {
                 const arsAmount = Math.floor(amount * compraRate);
-                result = `ARS: ${arsAmount.toLocaleString()}`;
-                document.getElementById("inputAmount").textContent = `$${amount.toFixed(2)} Dólares`;
-                document.getElementById("outputAmount").textContent = `$${arsAmount.toLocaleString()} Pesos`;
+                const usdAmount = amount.toFixed(2);
+                result = `Con $${usdAmount} Dólares de Estados Unidos obtienes $${arsAmount.toLocaleString()} Pesos de Argentina.`;
             } else if (conversionDirection === "arsToUsd") {
                 const usdAmount = Math.floor(amount / ventaRate);
-                result = `USD: ${usdAmount.toLocaleString()}`;
-                document.getElementById("inputAmount").textContent = `$${amount.toLocaleString()} Pesos`;
-                document.getElementById("outputAmount").textContent = `$${usdAmount.toFixed(2)} Dólares`;
+                const arsAmount = amount.toLocaleString();
+                result = `Con $${arsAmount} Pesos de Argentina obtienes $${usdAmount.toFixed(2)} Dólares de Estados Unidos.`;
             }
 
             document.getElementById("result").innerText = result;
@@ -81,3 +78,4 @@
     </script>
 </body>
 </html>
+
