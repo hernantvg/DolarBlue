@@ -16,7 +16,7 @@
             </div>
             <div class="card-body">
                 <div class="d-flex justify-content-between">
-                    <img src="ruta_del_logo.png" alt="Logo" height="50">
+                    <!-- <img src="ruta_del_logo.png" alt="Logo" height="50"> -->
                     <div class="alert alert-primary" role="alert">
                         Cotización actual Dólar Blue:<br>
                         Compra: $<span id="compra"></span> Venta: $<span id="venta"></span><br>
