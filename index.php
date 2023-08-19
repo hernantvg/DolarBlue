@@ -73,9 +73,10 @@
                 result = `Con $${arsAmount} Pesos de Argentina obtienes $${usdAmount.toFixed(2)} Dólares de Estados Unidos.`;
             }
 
-            document.getElementById("result").innerText = result;
+            document.getElementById("result").textContent = result;
         });
     </script>
 </body>
 </html>
+
 
