@@ -30,11 +30,17 @@
             <h4>Calculadora de Conversión</h4>
             <form>
                 <div class="mb-3">
-                    <label for="usdAmount" class="form-label">Cantidad en USD</label>
-                    <input type="number" class="form-control" id="usdAmount" placeholder="Ingrese la cantidad en USD">
+                    <label for="amount" class="form-label">Cantidad</label>
+                    <input type="number" class="form-control" id="amount" placeholder="Ingrese la cantidad">
                 </div>
-                <button type="button" class="btn btn-primary" id="convertToArs">Convertir a ARS</button>
-                <button type="button" class="btn btn-primary" id="convertToUsd">Convertir a USD</button>
+                <div class="mb-3">
+                    <label for="conversionDirection" class="form-label">Dirección de Conversión</label>
+                    <select class="form-select" id="conversionDirection">
+                        <option value="usdToArs">USD a ARS</option>
+                        <option value="arsToUsd">ARS a USD</option>
+                    </select>
+                </div>
+                <button type="button" class="btn btn-primary" id="convert">Convertir</button>
             </form>
             <div class="mt-3">
                 <p id="result"></p>
@@ -46,16 +52,18 @@
         const compraRate = <?php echo $compra ?>;
         const ventaRate = <?php echo $venta ?>;
 
-        document.getElementById("convertToArs").addEventListener("click", function() {
-            const usdAmount = parseFloat(document.getElementById("usdAmount").value);
-            const arsAmount = usdAmount * compraRate;
-            document.getElementById("result").innerText = `ARS: ${arsAmount.toFixed(2)}`;
-        });
+        document.getElementById("convert").addEventListener("click", function() {
+            const amount = parseFloat(document.getElementById("amount").value);
+            const conversionDirection = document.getElementById("conversionDirection").value;
 
-        document.getElementById("convertToUsd").addEventListener("click", function() {
-            const arsAmount = parseFloat(document.getElementById("usdAmount").value);
-            const usdAmount = arsAmount / ventaRate;
-            document.getElementById("result").innerText = `USD: ${usdAmount.toFixed(2)}`;
+            let result = "";
+            if (conversionDirection === "usdToArs") {
+                result = `ARS: ${(amount * compraRate).toFixed(2)}`;
+            } else if (conversionDirection === "arsToUsd") {
+                result = `USD: ${(amount / ventaRate).toFixed(2)}`;
+            }
+
+            document.getElementById("result").innerText = result;
         });
     </script>
 </body>
