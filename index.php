@@ -11,47 +11,44 @@
 <body>
     <div class="container mt-5">
         <div class="card">
+            <div class="card-header bg-success text-white">
+                <h5 class="m-0">Cotización Dólar Blue Hoy</h5>
+            </div>
             <div class="card-body">
-                <?php
-                $api_url = "https://dolarapi.com/v1/dolares/blue";
-                $data = json_decode(file_get_contents($api_url), true);
-
-                $compra = $data["compra"];
-                $venta = $data["venta"];
-                $fechaActualizacion = $data["fechaActualizacion"];
-
-                $fecha = new DateTime($fechaActualizacion, new DateTimeZone('UTC'));
-                $fecha->setTimezone(new DateTimeZone('America/Argentina/Buenos_Aires'));
-                $fechaFormateada = $fecha->format('Y-m-d H:i:s');
-                ?>
-                <div class="alert alert-primary" role="alert">
-                    Cotización actual Dólar Blue:
-                    <br>
-                    Compra: $<?php echo $compra ?> Venta: $<?php echo $venta ?>
-                    <br>
-                    Última actualización: <?php echo $fechaFormateada ?>
-                    <br>
-                    Nota: Hora de Buenos Aires, Argentina (GMT-3).
+                <div class="d-flex justify-content-between">
+                    <img src="ruta_del_logo.png" alt="Logo" height="50">
+                    <div class="alert alert-primary" role="alert">
+                        Cotización actual Dólar Blue:<br>
+                        Compra: $<?php echo $compra ?> Venta: $<?php echo $venta ?><br>
+                        Última actualización: <?php echo $fechaFormateada ?><br>
+                        Nota: Hora de Buenos Aires, Argentina (GMT-3).
+                    </div>
+                </div>
+                
+                <div class="card bg-light mt-4">
+                    <div class="card-body">
+                        <h4 class="card-title">Calculadora de Conversión</h4>
+                        <form>
+                            <div class="mb-3">
+                                <label for="amount" class="form-label">Cantidad</label>
+                                <input type="number" class="form-control" id="amount" placeholder="Ingrese la cantidad">
+                            </div>
+                            <div class="mb-3">
+                                <label for="conversionDirection" class="form-label">Dirección de Conversión</label>
+                                <select class="form-select" id="conversionDirection">
+                                    <option value="usdToArs">USD a ARS</option>
+                                    <option value="arsToUsd">ARS a USD</option>
+                                </select>
+                            </div>
+                            <button type="button" class="btn btn-primary" id="convert">Convertir</button>
+                        </form>
+                    </div>
                 </div>
 
-                <div class="mt-4">
-                    <h4>Calculadora de Conversión</h4>
-                    <form>
-                        <div class="mb-3">
-                            <label for="amount" class="form-label">Cantidad</label>
-                            <input type="number" class="form-control" id="amount" placeholder="Ingrese la cantidad">
-                        </div>
-                        <div class="mb-3">
-                            <label for="conversionDirection" class="form-label">Dirección de Conversión</label>
-                            <select class="form-select" id="conversionDirection">
-                                <option value="usdToArs">USD a ARS</option>
-                                <option value="arsToUsd">ARS a USD</option>
-                            </select>
-                        </div>
-                        <button type="button" class="btn btn-primary" id="convert">Convertir</button>
-                    </form>
-                    <div class="mt-3">
+                <div class="card bg-success mt-3">
+                    <div class="card-body text-white">
                         <p id="result"></p>
+                        <p>Con <span id="inputAmount">$4.00 Dólares</span> obtienes <span id="outputAmount">$2,880 Pesos</span>.</p>
                     </div>
                 </div>
             </div>
@@ -70,9 +67,13 @@
             if (conversionDirection === "usdToArs") {
                 const arsAmount = Math.floor(amount * compraRate);
                 result = `ARS: ${arsAmount.toLocaleString()}`;
+                document.getElementById("inputAmount").textContent = `$${amount.toFixed(2)} Dólares`;
+                document.getElementById("outputAmount").textContent = `$${arsAmount.toLocaleString()} Pesos`;
             } else if (conversionDirection === "arsToUsd") {
                 const usdAmount = Math.floor(amount / ventaRate);
                 result = `USD: ${usdAmount.toLocaleString()}`;
+                document.getElementById("inputAmount").textContent = `$${amount.toLocaleString()} Pesos`;
+                document.getElementById("outputAmount").textContent = `$${usdAmount.toFixed(2)} Dólares`;
             }
 
             document.getElementById("result").innerText = result;
