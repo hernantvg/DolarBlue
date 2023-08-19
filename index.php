@@ -58,9 +58,11 @@
 
             let result = "";
             if (conversionDirection === "usdToArs") {
-                result = `ARS: ${Math.floor(amount * compraRate)}`;
+                const arsAmount = Math.floor(amount * compraRate);
+                result = `ARS: ${arsAmount.toLocaleString()}`;
             } else if (conversionDirection === "arsToUsd") {
-                result = `USD: ${Math.floor(amount / ventaRate)}`;
+                const usdAmount = Math.floor(amount / ventaRate);
+                result = `USD: ${usdAmount.toLocaleString()}`;
             }
 
             document.getElementById("result").innerText = result;
@@ -68,3 +70,4 @@
     </script>
 </body>
 </html>
+
