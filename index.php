@@ -15,15 +15,21 @@
         $compra = $data["compra"];
         $venta = $data["venta"];
         $fechaActualizacion = $data["fechaActualizacion"];
+
+        // Convertir la fecha a objeto DateTime
+        $fecha = new DateTime($fechaActualizacion, new DateTimeZone('UTC'));
+        // Cambiar el huso horario a GMT-3
+        $fecha->setTimezone(new DateTimeZone('America/Argentina/Buenos_Aires'));
+        $fechaFormateada = $fecha->format('Y-m-d H:i:s');
         ?>
         <div class="alert alert-primary" role="alert">
             Cotización actual Dolar Blue:
             <br>
             Compra: $<?php echo $compra ?> Venta: $<?php echo $venta ?>
             <br>
-            Última actualización: <?php echo $fechaActualizacion ?>
+            Última actualización: <?php echo $fechaFormateada ?>
             <br>
-            Nota: Hora de Buenos Aires, Argentina.
+            Nota: Hora de Buenos Aires, Argentina (GMT-3).
         </div>
 
         <div class="mt-4">
@@ -70,4 +76,3 @@
     </script>
 </body>
 </html>
-
