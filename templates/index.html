@@ -16,7 +16,7 @@
                         <div class="alert alert-warning">
                             <p class="mb-1"><strong>Cotización actual Dolar Blue:</strong></p>
                             <h3><span class="text-success">Compra: <strong>${{ compra }}</strong></span> <span class="text-danger">Venta: <strong>${{ venta }}</strong></span></h3>
-                            <p class="mb-0"><span class="text-secondary">Fecha de actualizacion:</span> {{ fecha_actualizacion }}</p>
+                            <p class="mb-0"><span class="text-secondary">Ùltima actualizacion:</span> {{ fecha_actualizacion }}</p>
                             <p><em>Nota: Hora de Buenos Aires, Argentina.</em></p>
                         </div>
                         <form action="/convert" method="post">
@@ -35,14 +35,14 @@
                         </form>
                         {% if formatted_result is defined %}
                         <div class="mt-4 alert alert-success">
-                            <h5>
-                                {% if direction == 'ars_to_usd' %}
-                                    Con {{ formatted_amount|replace(',', '.') }} <img src="/img/flags/argentina.png" alt="Bandera Argentina"> obtienes {{ formatted_result }} <img src="/img/flags/usa.png" alt="Bandera Estados Unidos">.
-                                {% elif direction == 'usd_to_ars' %}
-                                    Con {{ formatted_amount|replace(',', '.') }} <img src="/img/flags/usa.png" alt="Bandera Estados Unidos"> obtienes {{ formatted_result }} <img src="/img/flags/argentina.png" alt="Bandera Argentina">.
-                                {% endif %}
-                            </h5>
-                            
+                            <h6>
+                            {% if direction == 'ars_to_usd' %}
+                                Con {{ formatted_amount|replace(',', '.') }} Pesos <img src="{{ url_for('static', filename='img/flags/argentina.png') }}" alt="Bandera Argentina" style="width: 25px;"><br><hr><br> obtienes {{ formatted_result|replace('.00', '') }} Dolares <img src="{{ url_for('static', filename='img/flags/usa.png') }}" alt="Bandera Estados Unidos" style="width: 25px;">
+                            {% elif direction == 'usd_to_ars' %}
+                                Con {{ formatted_amount|replace(',', '.') }} Dolares <img src="{{ url_for('static', filename='img/flags/usa.png') }}" alt="Bandera Estados Unidos" style="width: 25px;"><br><hr><br> obtienes {{ formatted_result|replace('.00', '') }} Pesos <img src="{{ url_for('static', filename='img/flags/argentina.png') }}" alt="Bandera Argentina" style="width: 25px;">
+                            {% endif %}
+                            </h6>
+
                         </div>
                         {% endif %}
                     </div>
