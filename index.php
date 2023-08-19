@@ -19,8 +19,8 @@
                     <img src="ruta_del_logo.png" alt="Logo" height="50">
                     <div class="alert alert-primary" role="alert">
                         Cotización actual Dólar Blue:<br>
-                        Compra: $<?php echo $compra ?> Venta: $<?php echo $venta ?><br>
-                        Última actualización: <?php echo $fechaFormateada ?><br>
+                        Compra: $<span id="compra"></span> Venta: $<span id="venta"></span><br>
+                        Última actualización: <span id="fechaActualizacion"></span><br>
                         Nota: Hora de Buenos Aires, Argentina (GMT-3).
                     </div>
                 </div>
@@ -55,8 +55,23 @@
     </div>
 
     <script>
-        const compraRate = <?php echo $compra ?>;
-        const ventaRate = <?php echo $venta ?>;
+        fetch("https://dolarapi.com/v1/dolares/blue")
+            .then(response => response.json())
+            .then(data => {
+                const compra = data.compra;
+                const venta = data.venta;
+                const fechaActualizacion = data.fechaActualizacion;
+
+                document.getElementById("compra").textContent = compra;
+                document.getElementById("venta").textContent = venta;
+
+                const fecha = new Date(fechaActualizacion);
+                const fechaFormateada = fecha.toLocaleString("es-AR", { timeZone: "America/Argentina/Buenos_Aires" });
+                document.getElementById("fechaActualizacion").textContent = fechaFormateada;
+            })
+            .catch(error => {
+                console.error("Error fetching data:", error);
+            });
 
         document.getElementById("convert").addEventListener("click", function() {
             const amount = parseFloat(document.getElementById("amount").value);
@@ -64,11 +79,11 @@
 
             let result = "";
             if (conversionDirection === "usdToArs") {
-                const arsAmount = Math.floor(amount * compraRate);
+                const arsAmount = Math.floor(amount * parseFloat(document.getElementById("compra").textContent));
                 const usdAmount = amount.toFixed(2);
                 result = `Con $${usdAmount} Dólares de Estados Unidos obtienes $${arsAmount.toLocaleString()} Pesos de Argentina.`;
             } else if (conversionDirection === "arsToUsd") {
-                const usdAmount = Math.floor(amount / ventaRate);
+                const usdAmount = Math.floor(amount / parseFloat(document.getElementById("venta").textContent));
                 const arsAmount = amount.toLocaleString();
                 result = `Con $${arsAmount} Pesos de Argentina obtienes $${usdAmount.toFixed(2)} Dólares de Estados Unidos.`;
             }
@@ -78,5 +93,3 @@
     </script>
 </body>
 </html>
-
-
