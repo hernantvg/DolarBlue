@@ -11,7 +11,7 @@
 <body>
     <div class="container mt-5">
         <div class="card">
-            <div class="card-header bg-success text-white">
+            <div class="card-header alert-success text-white">
                 <h5 class="m-0">Cotización Dólar Blue Hoy</h5>
             </div>
             <div class="card-body">
@@ -45,7 +45,7 @@
                     </div>
                 </div>
 
-                <div class="card bg-success mt-3">
+                <div class="mt-4 alert alert-success">
                     <div class="card-body text-white">
                         <p id="result"></p>
                     </div>
