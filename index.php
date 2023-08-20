@@ -7,6 +7,16 @@
     <meta name="robots" content="index, follow">
     <title>Cotización Dólar Blue Hoy - Precio Dólar Blue Hoy</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <style>
+    .center-box {
+        text-align: center;
+    }
+
+    .big-text {
+        font-size: 24px;
+        font-weight: bold;
+    }
+    </style>    
 </head>
 <body>
     <div class="container mt-5">
@@ -14,19 +24,15 @@
             <div class="card-header alert alert-success">
                 <h5 class="m-0">Cotización Dólar Blue Hoy</h5>
             </div>
-            <div class="card-body">
-            Compra: $<h1><span id="compra"></span></h1> Venta: $<h1><span id="venta"></span></h1>
-            </div>
-            <div class="card-body">
-                <div class="d-flex justify-content-between">
-                    <!-- <img src="ruta_del_logo.png" alt="Logo" height="50"> -->
-                    <div class="alert alert-primary" role="alert">
-                        Cotización actual Dólar Blue:<br>
-                        Compra: $<span id="compra"></span> Venta: $<span id="venta"></span><br>
-                        Última actualización: <span id="fechaActualizacion"></span><br>
-                        Nota: Hora de Buenos Aires, Argentina (GMT-3).
-                    </div>
+            <div class="card-body">            
+            <div class="center-box">
+                <div class="alert alert-primary" role="alert">
+                    <span class="big-text">Cotización actual Dólar Blue:</span><br>
+                    <span class="big-text">Compra: $<span id="compra"></span> Venta: $<span id="venta"></span></span><br>
+                    Última actualización: <span id="fechaActualizacion"></span><br>
+                    Nota: Hora de Buenos Aires, Argentina (GMT-3).
                 </div>
+            </div>
                 
                 <div class="card bg-light mt-4">
                     <div class="card-body">
