@@ -15,7 +15,7 @@
                 <h5 class="m-0">Cotización Dólar Blue Hoy</h5>
             </div>
             <div class="card-body">
-                <div class="d-flex justify-content-between">
+                <div class="d-flex">
                     <!-- <img src="ruta_del_logo.png" alt="Logo" height="50"> -->
                     <div class="alert alert-primary" role="alert">
                         Cotización actual Dólar Blue:<br>
