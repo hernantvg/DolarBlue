@@ -12,8 +12,13 @@
         text-align: center;
     }
 
-    .big-text {
+    .med-text {
         font-size: 24px;
+        font-weight: bold;
+    }
+
+    .big-text {
+        font-size: 32px;
         font-weight: bold;
     }
     </style>    
@@ -27,7 +32,7 @@
             <div class="card-body">            
             <div class="center-box">
                 <div class="alert alert-primary" role="alert">
-                    <span class="big-text">Cotización actual Dólar Blue:</span><br>
+                    <span class="med-text">Cotización actual Dólar Blue:</span><br>
                     <span class="big-text">Compra: $<span id="compra"></span> Venta: $<span id="venta"></span></span><br>
                     Última actualización: <span id="fechaActualizacion"></span><br>
                     Nota: Hora de Buenos Aires, Argentina (GMT-3).
