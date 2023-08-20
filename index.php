@@ -30,14 +30,14 @@
                 <h5 class="m-0">Cotización Dólar Blue Hoy</h5>
             </div>
             <div class="card-body">            
-            <div class="center-box">
-                <div class="alert alert-primary" role="alert">
-                    <span class="med-text">Cotización actual Dólar Blue</span><br>
-                    <span class="big-text">Compra: $<span id="compra"></span> Venta: $<span id="venta"></span></span><br>
-                    Última actualización: <span id="fechaActualizacion"></span><br>
-                    Nota: Hora de Buenos Aires, Argentina (GMT-3).
+                <div class="center-box">
+                    <div class="alert alert-primary" role="alert">
+                        <span class="med-text">Cotización actual Dólar Blue</span><br>
+                        <span class="big-text">Compra: $<span id="compra"></span> Venta: $<span id="venta"></span></span><br>
+                        Última actualización: <span id="fechaActualizacion"></span><br>
+                        Nota: Hora de Buenos Aires, Argentina (GMT-3).
+                    </div>
                 </div>
-            </div>
                 
                 <div class="card bg-light mt-4">
                     <div class="card-body">
@@ -62,6 +62,14 @@
                 <div class="mt-4 alert alert-success">
                     <div class="card-body">
                         <p id="result"></p>
+                    </div>
+                </div>
+
+                <!-- Feed de noticias -->
+                <div class="card bg-light mt-4">
+                    <div class="card-body">
+                        <h4 class="card-title">Últimas Noticias de Economía</h4>
+                        <ul id="newsList"></ul>
                     </div>
                 </div>
             </div>
@@ -104,6 +112,41 @@
 
             document.getElementById("result").textContent = result;
         });
+
+        // Función para obtener y mostrar las noticias
+        function fetchNews() {
+            fetch("https://www.ambito.com/rss/pages/economia.xml")
+                .then(response => response.text())
+                .then(data => {
+                    const parser = new DOMParser();
+                    const xmlDoc = parser.parseFromString(data, "text/xml");
+
+                    const items = xmlDoc.querySelectorAll("item");
+                    const newsList = document.getElementById("newsList");
+
+                    newsList.innerHTML = ""; // Limpia la lista de noticias
+
+                    items.forEach(item => {
+                        const title = item.querySelector("title").textContent;
+                        const link = item.querySelector("link").textContent;
+
+                        const listItem = document.createElement("li");
+                        const linkElement = document.createElement("a");
+                        linkElement.textContent = title;
+                        linkElement.href = link;
+                        linkElement.target = "_blank";
+
+                        listItem.appendChild(linkElement);
+                        newsList.appendChild(listItem);
+                    });
+                })
+                .catch(error => {
+                    console.error("Error fetching news:", error);
+                });
+        }
+
+        // Llama a la función para cargar las noticias al cargar la página
+        fetchNews();
     </script>
 </body>
 </html>
