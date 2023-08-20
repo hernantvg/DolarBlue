@@ -32,7 +32,7 @@
             <div class="card-body">            
             <div class="center-box">
                 <div class="alert alert-primary" role="alert">
-                    <span class="med-text">Cotización actual Dólar Blue:</span><br>
+                    <span class="med-text">Cotización actual Dólar Blue</span><br>
                     <span class="big-text">Compra: $<span id="compra"></span> Venta: $<span id="venta"></span></span><br>
                     Última actualización: <span id="fechaActualizacion"></span><br>
                     Nota: Hora de Buenos Aires, Argentina (GMT-3).
@@ -54,7 +54,7 @@
                                     <option value="arsToUsd">ARS a USD</option>
                                 </select>
                             </div>
-                            <button type="button" class="btn btn-primary" id="convert">Convertir</button>
+                            <button type="button" class="btn btn-primary" id="convert">Convertir!</button>
                         </form>
                     </div>
                 </div>
