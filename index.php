@@ -110,45 +110,41 @@
             document.getElementById("result").textContent = result;
         });
 
-        // Función para obtener y mostrar las noticias
-        function fetchNews() {
-            fetch("https://www.ambito.com/rss/pages/economia.xml")
-                .then(response => response.text())
-                .then(data => {
-                    const parser = new DOMParser();
-                    const xmlDoc = parser.parseFromString(data, "text/xml");
+    <h1>Últimas Noticias de Economía</h1>
+    <ul id="newsList"></ul>
 
-                    const items = xmlDoc.querySelectorAll("item");
-                    const newsList = document.getElementById("newsList");
+    <script>
+        fetch("https://www.ambito.com/rss/pages/economia.xml")
+            .then(response => response.text())
+            .then(data => {
+                const parser = new DOMParser();
+                const xmlDoc = parser.parseFromString(data, "text/xml");
 
-                    newsList.innerHTML = ""; // Limpia la lista de noticias
+                const items = xmlDoc.querySelectorAll("item");
+                const newsList = document.getElementById("newsList");
 
-                    items.forEach(item => {
-                        const title = item.querySelector("title").textContent;
-                        const link = item.querySelector("link").textContent;
-                        const description = item.querySelector("description").textContent;
+                items.forEach(item => {
+                    const title = item.querySelector("title").textContent;
+                    const link = item.querySelector("link").textContent;
+                    const description = item.querySelector("description").textContent;
 
-                        const listItem = document.createElement("li");
-                        const linkElement = document.createElement("a");
-                        linkElement.textContent = title;
-                        linkElement.href = link;
-                        linkElement.target = "_blank";
+                    const listItem = document.createElement("li");
+                    const linkElement = document.createElement("a");
+                    linkElement.textContent = title;
+                    linkElement.href = link;
+                    linkElement.target = "_blank";
 
-                        const descriptionElement = document.createElement("p");
-                        descriptionElement.textContent = description;
+                    const descriptionElement = document.createElement("p");
+                    descriptionElement.textContent = description;
 
-                        listItem.appendChild(linkElement);
-                        listItem.appendChild(descriptionElement);
-                        newsList.appendChild(listItem);
-                    });
-                })
-                .catch(error => {
-                    console.error("Error fetching news:", error);
+                    listItem.appendChild(linkElement);
+                    listItem.appendChild(descriptionElement);
+                    newsList.appendChild(listItem);
                 });
-        }
-
-        // Llama a la función para cargar las noticias al cargar la página
-        fetchNews();
+            })
+            .catch(error => {
+                console.error("Error fetching news:", error);
+            });
     </script>
 </body>
 </html>
