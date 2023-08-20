@@ -29,7 +29,7 @@
             <div class="card-header alert alert-success">
                 <h5 class="m-0">Cotización Dólar Blue Hoy</h5>
             </div>
-            <div class="card-body">            
+            <div class="card-body">
                 <div class="center-box">
                     <div class="alert alert-primary" role="alert">
                         <span class="med-text">Cotización actual Dólar Blue</span><br>
@@ -38,7 +38,7 @@
                         Nota: Hora de Buenos Aires, Argentina (GMT-3).
                     </div>
                 </div>
-                
+
                 <div class="card bg-light mt-4">
                     <div class="card-body">
                         <h4 class="card-title">Calculadora de Conversión</h4>
@@ -65,12 +65,9 @@
                     </div>
                 </div>
 
-                <!-- Feed de noticias -->
-                <div class="card bg-light mt-4">
-                    <div class="card-body">
-                        <h4 class="card-title">Últimas Noticias de Economía</h4>
-                        <ul id="newsList"></ul>
-                    </div>
+                <div class="mt-4">
+                    <h4>Últimas Noticias de Economía</h4>
+                    <ul id="newsList"></ul>
                 </div>
             </div>
         </div>
@@ -129,6 +126,7 @@
                     items.forEach(item => {
                         const title = item.querySelector("title").textContent;
                         const link = item.querySelector("link").textContent;
+                        const description = item.querySelector("description").textContent;
 
                         const listItem = document.createElement("li");
                         const linkElement = document.createElement("a");
@@ -136,7 +134,11 @@
                         linkElement.href = link;
                         linkElement.target = "_blank";
 
+                        const descriptionElement = document.createElement("p");
+                        descriptionElement.textContent = description;
+
                         listItem.appendChild(linkElement);
+                        listItem.appendChild(descriptionElement);
                         newsList.appendChild(listItem);
                     });
                 })
