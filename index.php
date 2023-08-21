@@ -97,6 +97,11 @@
                 <div class="card bg-light mt-4">
                         <h4 class="card-title">Conversiones Populares</h4>
                         <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Conversiones Populares</th>
+                            </tr>
+                        </thead>
                             <tbody>
                                 <tr>
                                     <td><span id="conversion1"></span></td>
