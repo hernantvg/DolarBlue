@@ -139,10 +139,11 @@
                             </tbody>
                         </table>
                 </div>
-            </div>
+            
             <div class="alert alert-info" role="alert" id="estadoAPI">
                 Estado de la API: Cargando...
             </div>
+           </div>
         </div>
     </div>
 
