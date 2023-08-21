@@ -76,6 +76,21 @@
                     <p id="result"></p>
                 </div>
 
+                            <div class="container mt-4">
+                    <table class="table table-striped" id="cotizaciones">
+                        <thead>
+                            <tr>
+                                <th>Casa de Cambio</th>
+                                <th>Compra</th>
+                                <th>Venta</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Los datos de la API se agregarán aquí automáticamente por JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+
                 <!-- Tabla de conversiones populares -->
                 <div class="card bg-light mt-4">
                     <div class="card-body">
@@ -184,6 +199,40 @@
 
             document.getElementById("result").innerHTML = result;
         });
+
+         // Función para actualizar la tabla de cotizaciones
+         function actualizarTabla() {
+            fetch("https://dolarapi.com/v1/dolares")
+                .then(response => response.json())
+                .then(data => {
+                    // Obtener el elemento de la tabla donde se agregarán los datos
+                    const cotizacionesTable = document.getElementById("cotizaciones").querySelector("tbody");
+
+                    // Limpiar la tabla existente
+                    cotizacionesTable.innerHTML = '';
+
+                    // Iterar sobre los datos y agregar filas a la tabla
+                    data.forEach(item => {
+                        const row = cotizacionesTable.insertRow();
+                        const casaCell = row.insertCell(0);
+                        const compraCell = row.insertCell(1);
+                        const ventaCell = row.insertCell(2);
+
+                        casaCell.textContent = item.nombre;
+                        compraCell.textContent = item.compra ? `$${item.compra.toFixed(2)}` : 'N/A';
+                        ventaCell.textContent = `$${item.venta.toFixed(2)}`;
+                    });
+                })
+                .catch(error => {
+                    console.error("Error fetching data:", error);
+                });
+        }
+
+        // Actualizar la tabla cada 5 minutos (300,000 milisegundos)
+        setInterval(actualizarTabla, 300000);
+
+        // Llamar a la función de actualización al cargar la página
+        actualizarTabla();
     </script>
 </body>
 </html>
