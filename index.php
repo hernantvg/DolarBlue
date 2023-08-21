@@ -140,10 +140,9 @@
                         </table>
                 </div>
             </div>
-        </div>
-
-        <div class="alert alert-info" role="alert" id="estadoAPI">
-        Estado de la API: Cargando...
+            <div class="card-body" role="alert" id="estadoAPI">
+                Estado de la API: Cargando...
+            </div>
         </div>
     </div>
 
@@ -246,11 +245,11 @@
         .then(response => response.json())
         .then(data => {
             const estado = data.estado;
-            document.getElementById("estadoAPI").textContent = `Estado de la API: ${estado}`;
+            document.getElementById("estadoAPI").textContent = `Status del servicio: ${estado}`;
         })
         .catch(error => {
             console.error("Error fetching API state:", error);
-            document.getElementById("estadoAPI").textContent = "Estado de la API: Error al cargar";
+            document.getElementById("estadoAPI").textContent = "Status del servicio: Error al cargar";
         });
     </script>
 </body>
