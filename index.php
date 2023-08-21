@@ -69,7 +69,12 @@
                         </form>
                     </div>
                 </div>
-                
+
+                <!-- Muestro resultado de conversion -->
+                <div class="card-body">
+                    <p id="result"></p>
+                </div>
+
                 <!-- Tabla de conversiones populares -->
                 <div class="card bg-light mt-4">
                     <div class="card-body">
@@ -112,9 +117,6 @@
                     </div>
                 </div>
 
-                <div class="card-body">
-                    <p id="result"></p>
-                </div>
             </div>
         </div>
     </div>
