@@ -77,7 +77,7 @@
                 </div>
 
                 <div class="card bg-light mt-4"">
-                   <div class="card-body">
+
                     <table class="table table-striped" id="cotizaciones">
                         <thead>
                             <tr>
@@ -90,12 +90,11 @@
                             <!-- Los datos de la API se agregarán aquí automáticamente por JavaScript -->
                         </tbody>
                     </table>
-                    </div>
+
                 </div>
 
                 <!-- Tabla de conversiones populares -->
                 <div class="card bg-light mt-4">
-                    <div class="card-body">
                         <h4 class="card-title">Conversiones Populares</h4>
                         <table class="table table-striped">
                             <tbody>
@@ -135,9 +134,7 @@
                                 <!-- Agrega más filas para otras conversiones populares aquí -->
                             </tbody>
                         </table>
-                    </div>
                 </div>
-
             </div>
         </div>
     </div>
