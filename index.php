@@ -75,7 +75,6 @@
                     <div class="card-body">
                         <h4 class="card-title">Conversiones Populares</h4>
                         <table class="table">
-
                             <tbody>
                                 <tr>
                                     <td><span id="conversion1"></span></td>
@@ -146,7 +145,7 @@
                 ];
 
                 conversionTable.forEach(conversion => {
-                    const arsAmount = Math.floor(conversion.amount * compra);
+                    const arsAmount = Math.floor(conversion.amount * venta);
                     document.getElementById(`conversion${conversion.amount}`).textContent = `${conversion.label} son $${arsAmount.toLocaleString()} pesos argentinos`;
                 });
             })
@@ -160,11 +159,11 @@
 
             let result = "";
             if (conversionDirection === "usdToArs") {
-                const arsAmount = Math.floor(amount * parseFloat(document.getElementById("compra").textContent));
+                const arsAmount = Math.floor(amount * parseFloat(document.getElementById("venta").textContent));
                 const usdAmount = amount.toFixed(2);
                 result = `Con $${usdAmount} Dólares de Estados Unidos obtienes $${arsAmount.toLocaleString()} Pesos de Argentina.`;
             } else if (conversionDirection === "arsToUsd") {
-                const usdAmount = Math.floor(amount / parseFloat(document.getElementById("venta").textContent));
+                const usdAmount = Math.floor(amount / parseFloat(document.getElementById("compra").textContent));
                 const arsAmount = amount.toLocaleString();
                 result = `Con $${arsAmount} Pesos de Argentina obtienes $${usdAmount.toFixed(2)} Dólares de Estados Unidos.`;
             }
