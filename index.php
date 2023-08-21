@@ -76,11 +76,11 @@
                     <p id="result"></p>
                 </div>
 
-                            <div class="container mt-4">
+                            <div class="card bg-light mt-4"">
                     <table class="table table-striped" id="cotizaciones">
                         <thead>
                             <tr>
-                                <th>Casa de Cambio</th>
+                                <th>Cotizacion de Todos los tipos de Dólar</th>
                                 <th>Compra</th>
                                 <th>Venta</th>
                             </tr>
@@ -95,7 +95,7 @@
                 <div class="card bg-light mt-4">
                     <div class="card-body">
                         <h4 class="card-title">Conversiones Populares</h4>
-                        <table class="table">
+                        <table class="table table-striped">
                             <tbody>
                                 <tr>
                                     <td><span id="conversion1"></span></td>
