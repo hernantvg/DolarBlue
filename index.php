@@ -131,9 +131,14 @@
             .then(data => {
                 const compra = data.compra;
                 const venta = data.venta;
+                const fechaActualizacion = data.fechaActualizacion;
 
                 document.getElementById("compra").textContent = compra;
                 document.getElementById("venta").textContent = venta;
+
+                const fecha = new Date(fechaActualizacion);
+                    const fechaFormateada = fecha.toLocaleString("es-AR", { timeZone: "America/Argentina/Buenos_Aires" });
+                    document.getElementById("fechaActualizacion").textContent = fechaFormateada;
 
                 const conversionTable = [
                     { amount: 1, label: "1 dólar blue" },
