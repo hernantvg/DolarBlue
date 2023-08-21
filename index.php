@@ -75,54 +75,54 @@
                 </div>
 
                 <div class="mt-4 alert alert-success hidden">
-                    <div class="card-body">
-                        <p id="result"></p>
-                    </div>
-                </div>
+            <div class="card-body">
+                <p id="result"></p>
             </div>
         </div>
     </div>
 
     <script>
-        fetch("https://dolarapi.com/v1/dolares/blue")
-            .then(response => response.json())
-            .then(data => {
-                const compra = data.compra;
-                const venta = data.venta;
-                const fechaActualizacion = data.fechaActualizacion;
+        document.addEventListener("DOMContentLoaded", function() {
+            fetch("https://dolarapi.com/v1/dolares/blue")
+                .then(response => response.json())
+                .then(data => {
+                    const compra = data.compra;
+                    const venta = data.venta;
+                    const fechaActualizacion = data.fechaActualizacion;
 
-                document.getElementById("compra").textContent = compra;
-                document.getElementById("venta").textContent = venta;
+                    document.getElementById("compra").textContent = compra;
+                    document.getElementById("venta").textContent = venta;
 
-                const fecha = new Date(fechaActualizacion);
-                const fechaFormateada = fecha.toLocaleString("es-AR", { timeZone: "America/Argentina/Buenos_Aires" });
-                document.getElementById("fechaActualizacion").textContent = fechaFormateada;
-            })
-            .catch(error => {
-                console.error("Error fetching data:", error);
+                    const fecha = new Date(fechaActualizacion);
+                    const fechaFormateada = fecha.toLocaleString("es-AR", { timeZone: "America/Argentina/Buenos_Aires" });
+                    document.getElementById("fechaActualizacion").textContent = fechaFormateada;
+                })
+                .catch(error => {
+                    console.error("Error fetching data:", error);
+                });
+
+            document.getElementById("convert").addEventListener("click", function() {
+                const amount = parseFloat(document.getElementById("amount").value);
+                const conversionDirection = document.getElementById("conversionDirection").value;
+
+                let result = "";
+                if (conversionDirection === "usdToArs") {
+                    const arsAmount = Math.floor(amount * parseFloat(document.getElementById("compra").textContent));
+                    const usdAmount = amount.toFixed(2);
+                    result = `Con $${usdAmount} Dólares de Estados Unidos obtienes $${arsAmount.toLocaleString()} Pesos de Argentina.`;
+                } else if (conversionDirection === "arsToUsd") {
+                    const usdAmount = Math.floor(amount / parseFloat(document.getElementById("venta").textContent));
+                    const arsAmount = amount.toLocaleString();
+                    result = `Con $${arsAmount} Pesos de Argentina obtienes $${usdAmount.toFixed(2)} Dólares de Estados Unidos.`;
+                }
+
+                if (result !== "") {
+                    document.getElementById("result").textContent = result;
+                    document.querySelector(".alert-success").classList.remove("hidden");
+                } else {
+                    document.querySelector(".alert-success").classList.add("hidden");
+                }
             });
-
-        document.getElementById("convert").addEventListener("click", function() {
-            const amount = parseFloat(document.getElementById("amount").value);
-            const conversionDirection = document.getElementById("conversionDirection").value;
-
-            let result = "";
-            if (conversionDirection === "usdToArs") {
-                const arsAmount = Math.floor(amount * parseFloat(document.getElementById("compra").textContent));
-                const usdAmount = amount.toFixed(2);
-                result = `Con $${usdAmount} Dólares de Estados Unidos obtienes $${arsAmount.toLocaleString()} Pesos de Argentina.`;
-            } else if (conversionDirection === "arsToUsd") {
-                const usdAmount = Math.floor(amount / parseFloat(document.getElementById("venta").textContent));
-                const arsAmount = amount.toLocaleString();
-                result = `Con $${arsAmount} Pesos de Argentina obtienes $${usdAmount.toFixed(2)} Dólares de Estados Unidos.`;
-            }
-
-            if (result !== "") {
-                document.getElementById("result").textContent = result;
-                document.querySelector(".alert-success").classList.remove("hidden");
-            } else {
-                document.querySelector(".alert-success").classList.add("hidden");
-            }
         });
     </script>
 </body>
