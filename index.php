@@ -140,7 +140,7 @@
                         </table>
                 </div>
             </div>
-            <div class="card-body" role="alert" id="estadoAPI">
+            <div class="alert alert-info" role="alert" id="estadoAPI">
                 Estado de la API: Cargando...
             </div>
         </div>
