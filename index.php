@@ -95,7 +95,6 @@
 
                 <!-- Tabla de conversiones populares -->
                 <div class="card bg-light mt-4">
-                        <h4 class="card-title">Conversiones Populares</h4>
                         <table class="table table-striped">
                         <thead>
                             <tr>
