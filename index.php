@@ -141,6 +141,10 @@
                 </div>
             </div>
         </div>
+
+        <div class="alert alert-info" role="alert" id="estadoAPI">
+        Estado de la API: Cargando...
+        </div>
     </div>
 
     <script>
@@ -236,6 +240,18 @@
 
         // Llamar a la función de actualización al cargar la página
         actualizarTabla();
+
+         // Obtener el estado de la API
+    fetch("https://dolarapi.com/v1/estado")
+        .then(response => response.json())
+        .then(data => {
+            const estado = data.estado;
+            document.getElementById("estadoAPI").textContent = `Estado de la API: ${estado}`;
+        })
+        .catch(error => {
+            console.error("Error fetching API state:", error);
+            document.getElementById("estadoAPI").textContent = "Estado de la API: Error al cargar";
+        });
     </script>
 </body>
 </html>
