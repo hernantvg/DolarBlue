@@ -32,7 +32,7 @@
 <body>
     <div class="container mt-5">
         <div class="card">
-            <div class="card-header alert alert-success" id="estadoAPI">
+            <div class="card-header alert alert-success">
                 <h5 class="m-0">Cotización Dólar Blue Hoy - Calculadora de dólar blue a peso argentino</h5>
             </div>
             <div class="card-body">            
@@ -45,6 +45,9 @@
                         </span><br>
                         Última actualización: <span id="fechaActualizacion"></span><br>
                         Nota: Hora de Buenos Aires, Argentina (GMT-3).
+                        <div role="alert" id="estadoAPI">
+                         Estado de la API: Cargando...
+                        </div>
                     </div>
                 </div>
                 
