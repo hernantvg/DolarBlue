@@ -112,6 +112,9 @@
                                 <tr>
                                     <td><span id="conversion10000"></span></td>
                                 </tr>
+                                <tr>
+                                    <td><span id="conversion100000"></span></td>
+                                </tr>
                                 <!-- Agrega más filas para otras conversiones populares aquí -->
                             </tbody>
                         </table>
@@ -144,6 +147,7 @@
                     { amount: 1000, label: "1000 dólares blue" },
                     { amount: 5000, label: "5000 dólares blue" },
                     { amount: 10000, label: "10000 dólares blue" },
+                    { amount: 100000, label: "100000 dólares blue" },
                     // Agrega más conversiones populares aquí
                 ];
 
