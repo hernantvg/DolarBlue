@@ -26,6 +26,10 @@
         font-size: 32px;
         font-weight: bold;
     }
+
+    .hidden {
+        display: none;
+    }
     </style>    
 </head>
 <body>
@@ -70,7 +74,7 @@
                     </div>
                 </div>
 
-                <div class="mt-4 alert alert-success">
+                <div class="mt-4 alert alert-success hidden">
                     <div class="card-body">
                         <p id="result"></p>
                     </div>
@@ -79,46 +83,46 @@
         </div>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
-        $(document).ready(function() {
-            // Obtener la cotización actual del dólar blue usando AJAX
-            $.getJSON("https://dolarapi.com/v1/dolares/blue", function(data) {
+        fetch("https://dolarapi.com/v1/dolares/blue")
+            .then(response => response.json())
+            .then(data => {
                 const compra = data.compra;
                 const venta = data.venta;
                 const fechaActualizacion = data.fechaActualizacion;
 
-                $("#compra").text(compra);
-                $("#venta").text(venta);
+                document.getElementById("compra").textContent = compra;
+                document.getElementById("venta").textContent = venta;
 
                 const fecha = new Date(fechaActualizacion);
                 const fechaFormateada = fecha.toLocaleString("es-AR", { timeZone: "America/Argentina/Buenos_Aires" });
-                $("#fechaActualizacion").text(fechaFormateada);
+                document.getElementById("fechaActualizacion").textContent = fechaFormateada;
+            })
+            .catch(error => {
+                console.error("Error fetching data:", error);
             });
 
-            // Manejar la conversión en tiempo real usando AJAX al hacer clic en el botón "Convertir"
-            $("#convert").click(function() {
-                const amount = parseFloat($("#amount").val());
-                const conversionDirection = $("#conversionDirection").val();
+        document.getElementById("convert").addEventListener("click", function() {
+            const amount = parseFloat(document.getElementById("amount").value);
+            const conversionDirection = document.getElementById("conversionDirection").value;
 
-                $.getJSON("https://dolarapi.com/v1/dolares/blue", function(data) {
-                    const compra = data.compra;
-                    const venta = data.venta;
+            let result = "";
+            if (conversionDirection === "usdToArs") {
+                const arsAmount = Math.floor(amount * parseFloat(document.getElementById("compra").textContent));
+                const usdAmount = amount.toFixed(2);
+                result = `Con $${usdAmount} Dólares de Estados Unidos obtienes $${arsAmount.toLocaleString()} Pesos de Argentina.`;
+            } else if (conversionDirection === "arsToUsd") {
+                const usdAmount = Math.floor(amount / parseFloat(document.getElementById("venta").textContent));
+                const arsAmount = amount.toLocaleString();
+                result = `Con $${arsAmount} Pesos de Argentina obtienes $${usdAmount.toFixed(2)} Dólares de Estados Unidos.`;
+            }
 
-                    let result = "";
-                    if (conversionDirection === "usdToArs") {
-                        const arsAmount = Math.floor(amount * compra);
-                        const usdAmount = amount.toFixed(2);
-                        result = `Con $${usdAmount} Dólares de Estados Unidos obtienes $${arsAmount.toLocaleString()} Pesos de Argentina.`;
-                    } else if (conversionDirection === "arsToUsd") {
-                        const usdAmount = Math.floor(amount / venta);
-                        const arsAmount = amount.toLocaleString();
-                        result = `Con $${arsAmount} Pesos de Argentina obtienes $${usdAmount.toFixed(2)} Dólares de Estados Unidos.`;
-                    }
-
-                    $("#result").text(result);
-                });
-            });
+            if (result !== "") {
+                document.getElementById("result").textContent = result;
+                document.querySelector(".alert-success").classList.remove("hidden");
+            } else {
+                document.querySelector(".alert-success").classList.add("hidden");
+            }
         });
     </script>
 </body>
