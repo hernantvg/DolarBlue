@@ -69,10 +69,40 @@
                         </form>
                     </div>
                 </div>
-
+                
+                <!-- Tabla de conversiones populares -->
+                <div class="card bg-light mt-4">
                     <div class="card-body">
-                        <p id="result"></p>
+                        <h4 class="card-title">Conversiones Populares</h4>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Cantidad</th>
+                                    <th>Conversión</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1 dólar blue</td>
+                                    <td><span id="conversion1"></span></td>
+                                </tr>
+                                <tr>
+                                    <td>10 dólares blue</td>
+                                    <td><span id="conversion10"></span></td>
+                                </tr>
+                                <tr>
+                                    <td>20 dólares blue</td>
+                                    <td><span id="conversion20"></span></td>
+                                </tr>
+                                <!-- Agrega más filas para otras conversiones populares aquí -->
+                            </tbody>
+                        </table>
                     </div>
+                </div>
+
+                <div class="card-body">
+                    <p id="result"></p>
+                </div>
             </div>
         </div>
     </div>
@@ -86,6 +116,19 @@
 
                 document.getElementById("compra").textContent = compra;
                 document.getElementById("venta").textContent = venta;
+
+                // Actualizar las conversiones populares
+                const conversionTable = [
+                    { amount: 1, label: "1 dólar blue" },
+                    { amount: 10, label: "10 dólares blue" },
+                    { amount: 20, label: "20 dólares blue" },
+                    // Agrega más conversiones populares aquí
+                ];
+
+                conversionTable.forEach(conversion => {
+                    const arsAmount = Math.floor(conversion.amount * compra);
+                    document.getElementById(`conversion${conversion.amount}`).textContent = `${conversion.label} a pesos argentinos son $${arsAmount.toLocaleString()}`;
+                });
             })
             .catch(error => {
                 console.error("Error fetching data:", error);
