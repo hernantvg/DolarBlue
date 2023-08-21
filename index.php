@@ -135,7 +135,6 @@
                 document.getElementById("compra").textContent = compra;
                 document.getElementById("venta").textContent = venta;
 
-                // Actualizar las conversiones populares
                 const conversionTable = [
                     { amount: 1, label: "1 dólar blue" },
                     { amount: 10, label: "10 dólares blue" },
@@ -147,13 +146,12 @@
                     { amount: 1000, label: "1000 dólares blue" },
                     { amount: 5000, label: "5000 dólares blue" },
                     { amount: 10000, label: "10000 dólares blue" },
-                    { amount: 100000, label: "100000 dólares blue" },
-                    // Agrega más conversiones populares aquí
+                    { amount: 100000, label: "100000 dólares blue" }
                 ];
 
                 conversionTable.forEach(conversion => {
-                    const arsAmount = Math.floor(conversion.amount * venta);
-                    document.getElementById(`conversion${conversion.amount}`).textContent = `${conversion.label} son $${arsAmount.toLocaleString()} pesos argentinos`;
+                    const arsAmount = (conversion.amount * venta).toFixed(2);
+                    document.getElementById(`conversion${conversion.amount}`).textContent = `${conversion.label} son $${arsAmount} pesos argentinos`;
                 });
             })
             .catch(error => {
@@ -166,13 +164,13 @@
 
             let result = "";
             if (conversionDirection === "usdToArs") {
-                const arsAmount = Math.floor(amount * parseFloat(document.getElementById("venta").textContent));
+                const arsAmount = (amount * parseFloat(document.getElementById("venta").textContent)).toFixed(2);
                 const usdAmount = amount.toFixed(2);
-                result = `Con $${usdAmount} Dólares de Estados Unidos obtienes $${arsAmount.toLocaleString()} Pesos de Argentina.`;
+                result = `Con $${usdAmount} Dólares de Estados Unidos obtienes $${arsAmount} Pesos de Argentina.`;
             } else if (conversionDirection === "arsToUsd") {
-                const usdAmount = Math.floor(amount / parseFloat(document.getElementById("compra").textContent));
-                const arsAmount = amount.toLocaleString();
-                result = `Con $${arsAmount} Pesos de Argentina obtienes $${usdAmount.toFixed(2)} Dólares de Estados Unidos.`;
+                const usdAmount = (amount / parseFloat(document.getElementById("compra").textContent)).toFixed(2);
+                const arsAmount = amount.toFixed(2);
+                result = `Con $${arsAmount} Pesos de Argentina obtienes $${usdAmount} Dólares de Estados Unidos.`;
             }
 
             if (result !== "") {
