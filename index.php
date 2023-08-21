@@ -172,7 +172,7 @@
             }
 
             if (result !== "") {
-                result = `<div class="mt-4 alert alert-success">${result}</div>`;
+                result = `<div class="mt-4 alert alert-success"><h5>${result}</h5></div>`;
             }
 
             document.getElementById("result").innerHTML = result;
