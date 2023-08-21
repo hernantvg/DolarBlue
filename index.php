@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Consulta la cotización actual del Dólar Blue en Argentina y realiza conversiones de moneda.">
     <meta name="robots" content="index, follow">
-    <title>Cotización Dólar Blue Hoy - Dolar Informal en Argentina - Precio Dólar Blue Hoy</title>
+    <title>Cotización Dólar Blue Hoy - Dólar Informal en Argentina - Precio Dólar Blue Hoy</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <style>
     .center-box {
@@ -41,7 +41,7 @@
                 
                 <div class="card bg-light mt-4">
                     <div class="card-body">
-                        <h4 class="card-title">Calculadora de Conversión</h4>
+                        <h4 class="card-title">Calculadora de Conversión Dólar Blue a Peso Argentino</h4>
                         <form>
                             <div class="mb-3">
                                 <label for="amount" class="form-label">Cantidad</label>
