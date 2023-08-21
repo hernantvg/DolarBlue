@@ -51,7 +51,7 @@
                     <div class="card-body">
                         <h4 class="card-title">Calculadora de Conversión Dólar Blue a Peso Argentino</h4>
                         <p>
-                        Emplea la herramienta de conversión que sigue para estimar el valor del dólar paralelo en moneda local argentina y al revés. El tipo de cambio del dólar paralelo se renueva cada día.
+                        Emplea la herramienta de conversión que sigue para estimar el valor del dólar Blue o paralelo en moneda local argentina y al revés. El tipo de cambio del dólar paralelo se renueva cada día.
                         </p>
                         <form>
                             <div class="mb-3">
