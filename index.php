@@ -79,41 +79,46 @@
         </div>
     </div>
 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
-        fetch("https://dolarapi.com/v1/dolares/blue")
-            .then(response => response.json())
-            .then(data => {
+        $(document).ready(function() {
+            // Obtener la cotización actual del dólar blue usando AJAX
+            $.getJSON("https://dolarapi.com/v1/dolares/blue", function(data) {
                 const compra = data.compra;
                 const venta = data.venta;
                 const fechaActualizacion = data.fechaActualizacion;
 
-                document.getElementById("compra").textContent = compra;
-                document.getElementById("venta").textContent = venta;
+                $("#compra").text(compra);
+                $("#venta").text(venta);
 
                 const fecha = new Date(fechaActualizacion);
                 const fechaFormateada = fecha.toLocaleString("es-AR", { timeZone: "America/Argentina/Buenos_Aires" });
-                document.getElementById("fechaActualizacion").textContent = fechaFormateada;
-            })
-            .catch(error => {
-                console.error("Error fetching data:", error);
+                $("#fechaActualizacion").text(fechaFormateada);
             });
 
-        document.getElementById("convert").addEventListener("click", function() {
-            const amount = parseFloat(document.getElementById("amount").value);
-            const conversionDirection = document.getElementById("conversionDirection").value;
+            // Manejar la conversión en tiempo real usando AJAX al hacer clic en el botón "Convertir"
+            $("#convert").click(function() {
+                const amount = parseFloat($("#amount").val());
+                const conversionDirection = $("#conversionDirection").val();
 
-            let result = "";
-            if (conversionDirection === "usdToArs") {
-                const arsAmount = Math.floor(amount * parseFloat(document.getElementById("compra").textContent));
-                const usdAmount = amount.toFixed(2);
-                result = `Con $${usdAmount} Dólares de Estados Unidos obtienes $${arsAmount.toLocaleString()} Pesos de Argentina.`;
-            } else if (conversionDirection === "arsToUsd") {
-                const usdAmount = Math.floor(amount / parseFloat(document.getElementById("venta").textContent));
-                const arsAmount = amount.toLocaleString();
-                result = `Con $${arsAmount} Pesos de Argentina obtienes $${usdAmount.toFixed(2)} Dólares de Estados Unidos.`;
-            }
+                $.getJSON("https://dolarapi.com/v1/dolares/blue", function(data) {
+                    const compra = data.compra;
+                    const venta = data.venta;
 
-            document.getElementById("result").textContent = result;
+                    let result = "";
+                    if (conversionDirection === "usdToArs") {
+                        const arsAmount = Math.floor(amount * compra);
+                        const usdAmount = amount.toFixed(2);
+                        result = `Con $${usdAmount} Dólares de Estados Unidos obtienes $${arsAmount.toLocaleString()} Pesos de Argentina.`;
+                    } else if (conversionDirection === "arsToUsd") {
+                        const usdAmount = Math.floor(amount / venta);
+                        const arsAmount = amount.toLocaleString();
+                        result = `Con $${arsAmount} Pesos de Argentina obtienes $${usdAmount.toFixed(2)} Dólares de Estados Unidos.`;
+                    }
+
+                    $("#result").text(result);
+                });
+            });
         });
     </script>
 </body>
