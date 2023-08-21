@@ -94,6 +94,34 @@
                                     <td>20 dólares blue</td>
                                     <td><span id="conversion20"></span></td>
                                 </tr>
+                                <tr>
+                                    <td>20 dólares blue</td>
+                                    <td><span id="conversion50"></span></td>
+                                </tr>
+                                <tr>
+                                    <td>20 dólares blue</td>
+                                    <td><span id="conversion100"></span></td>
+                                </tr>
+                                <tr>
+                                    <td>20 dólares blue</td>
+                                    <td><span id="conversion200"></span></td>
+                                </tr>
+                                <tr>
+                                    <td>20 dólares blue</td>
+                                    <td><span id="conversion500"></span></td>
+                                </tr>
+                                <tr>
+                                    <td>20 dólares blue</td>
+                                    <td><span id="conversion1000"></span></td>
+                                </tr>
+                                <tr>
+                                    <td>20 dólares blue</td>
+                                    <td><span id="conversion5000"></span></td>
+                                </tr>
+                                <tr>
+                                    <td>20 dólares blue</td>
+                                    <td><span id="conversion10000"></span></td>
+                                </tr>
                                 <!-- Agrega más filas para otras conversiones populares aquí -->
                             </tbody>
                         </table>
@@ -122,12 +150,19 @@
                     { amount: 1, label: "1 dólar blue" },
                     { amount: 10, label: "10 dólares blue" },
                     { amount: 20, label: "20 dólares blue" },
+                    { amount: 50, label: "50 dólares blue" },
+                    { amount: 100, label: "100 dólares blue" },
+                    { amount: 200, label: "200 dólares blue" },
+                    { amount: 500, label: "500 dólares blue" },
+                    { amount: 1000, label: "1000 dólares blue" },
+                    { amount: 5000, label: "5000 dólares blue" },
+                    { amount: 10000, label: "10000 dólares blue" },
                     // Agrega más conversiones populares aquí
                 ];
 
                 conversionTable.forEach(conversion => {
                     const arsAmount = Math.floor(conversion.amount * compra);
-                    document.getElementById(`conversion${conversion.amount}`).textContent = `${conversion.label} a pesos argentinos son $${arsAmount.toLocaleString()}`;
+                    document.getElementById(`conversion${conversion.amount}`).textContent = `${conversion.label} son $${arsAmount.toLocaleString()} pesos argentinos`;
                 });
             })
             .catch(error => {
