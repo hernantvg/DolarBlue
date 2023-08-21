@@ -75,11 +75,7 @@
                     <div class="card-body">
                         <h4 class="card-title">Conversiones Populares</h4>
                         <table class="table">
-                            <thead>
-                                <tr>
-                                    <th>Conversión</th>
-                                </tr>
-                            </thead>
+
                             <tbody>
                                 <tr>
                                     <td><span id="conversion1"></span></td>
