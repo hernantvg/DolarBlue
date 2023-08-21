@@ -83,14 +83,9 @@
             .then(data => {
                 const compra = data.compra;
                 const venta = data.venta;
-                const fechaActualizacion = data.fechaActualizacion;
 
                 document.getElementById("compra").textContent = compra;
                 document.getElementById("venta").textContent = venta;
-
-                const fecha = new Date(fechaActualizacion);
-                const fechaFormateada = fecha.toLocaleString("es-AR", { timeZone: "America/Argentina/Buenos_Aires" });
-                document.getElementById("fechaActualizacion").textContent = fechaFormateada;
             })
             .catch(error => {
                 console.error("Error fetching data:", error);
@@ -104,14 +99,18 @@
             if (conversionDirection === "usdToArs") {
                 const arsAmount = Math.floor(amount * parseFloat(document.getElementById("compra").textContent));
                 const usdAmount = amount.toFixed(2);
-                result = `<div class="mt-4 alert alert-success">Con $${usdAmount} Dólares de Estados Unidos obtienes $${arsAmount.toLocaleString()} Pesos de Argentina.</div>`;
+                result = `Con $${usdAmount} Dólares de Estados Unidos obtienes $${arsAmount.toLocaleString()} Pesos de Argentina.`;
             } else if (conversionDirection === "arsToUsd") {
                 const usdAmount = Math.floor(amount / parseFloat(document.getElementById("venta").textContent));
                 const arsAmount = amount.toLocaleString();
-                result = `<div class="mt-4 alert alert-success">Con $${arsAmount} Pesos de Argentina obtienes $${usdAmount.toFixed(2)} Dólares de Estados Unidos.</div>`;
+                result = `Con $${arsAmount} Pesos de Argentina obtienes $${usdAmount.toFixed(2)} Dólares de Estados Unidos.`;
             }
 
-            document.getElementById("result").textContent = result;
+            if (result !== "") {
+                result = `<div class="mt-4 alert alert-success">${result}</div>`;
+            }
+
+            document.getElementById("result").innerHTML = result;
         });
     </script>
 </body>
