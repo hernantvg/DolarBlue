@@ -95,31 +95,31 @@
                                     <td><span id="conversion20"></span></td>
                                 </tr>
                                 <tr>
-                                    <td>20 dólares blue</td>
+                                    <td>50 dólares blue</td>
                                     <td><span id="conversion50"></span></td>
                                 </tr>
                                 <tr>
-                                    <td>20 dólares blue</td>
+                                    <td>100 dólares blue</td>
                                     <td><span id="conversion100"></span></td>
                                 </tr>
                                 <tr>
-                                    <td>20 dólares blue</td>
+                                    <td>200 dólares blue</td>
                                     <td><span id="conversion200"></span></td>
                                 </tr>
                                 <tr>
-                                    <td>20 dólares blue</td>
+                                    <td>500 dólares blue</td>
                                     <td><span id="conversion500"></span></td>
                                 </tr>
                                 <tr>
-                                    <td>20 dólares blue</td>
+                                    <td>1000 dólares blue</td>
                                     <td><span id="conversion1000"></span></td>
                                 </tr>
                                 <tr>
-                                    <td>20 dólares blue</td>
+                                    <td>5000 dólares blue</td>
                                     <td><span id="conversion5000"></span></td>
                                 </tr>
                                 <tr>
-                                    <td>20 dólares blue</td>
+                                    <td>10000 dólares blue</td>
                                     <td><span id="conversion10000"></span></td>
                                 </tr>
                                 <!-- Agrega más filas para otras conversiones populares aquí -->
