@@ -201,7 +201,7 @@
             }
 
             if (result !== "") {
-                result = `<span class="badge text-bg-success"><h5>${result}</h5></span>`;
+                result = `<div class="mt-4 alert alert-success"><h5>${result}</h5></div>`;
             }
 
             document.getElementById("result").innerHTML = result;
