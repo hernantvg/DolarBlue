@@ -79,6 +79,7 @@
 
                 <!-- Muestro resultado de conversion -->
                 <div class="card-body">
+                <button type="button" class="btn-close" aria-label="Close"></button>
                     <p id="result"></p>
                 </div>
 
