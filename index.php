@@ -71,7 +71,7 @@
                                 </select>
                             </div>
                             <div class="d-grid gap-2">
-                            <button type="button" class="btn btn-primary" id="convert"><h2>Convertir!</h2></button>
+                            <button type="button" class="btn btn-primary" id="convert"><h4>Convertir!</h4></button>
                             </div>
                         </form>
                     </div>
@@ -79,7 +79,7 @@
 
                 <!-- Muestro resultado de conversion -->
                 <div class="card-body">
-                  <p id="result"><button type="button" class="btn-close" aria-label="Close"></button></p>
+                  <p id="result"></p>
                 </div>
 
                 <div class="card bg-light mt-4"">
