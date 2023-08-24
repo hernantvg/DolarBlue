@@ -33,7 +33,8 @@
     <div class="container mt-5">
         <div class="card">
             <div class="card-header alert alert-success">
-                <h5 class="m-0">Cotización Dólar Blue Hoy - Calculadora de dólar blue a peso argentino</h5>
+                <h1 class="m-0">Cotización Dólar Blue Hoy</h1>
+                    <h6>USD a ARS | Calculadora de dólar blue a peso argentino</h6>
             </div>
             <div class="card-body">            
                 <div class="center-box">
