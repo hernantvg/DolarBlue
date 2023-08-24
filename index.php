@@ -79,8 +79,7 @@
 
                 <!-- Muestro resultado de conversion -->
                 <div class="card-body">
-                <button type="button" class="btn-close" aria-label="Close"></button>
-                    <p id="result"></p>
+                  <p id="result"><button type="button" class="btn-close" aria-label="Close"></button></p>
                 </div>
 
                 <div class="card bg-light mt-4"">
