@@ -70,7 +70,9 @@
                                     <option value="arsToUsd">ARS a USD</option>
                                 </select>
                             </div>
+                            <div class="d-grid gap-2">
                             <button type="button" class="btn btn-primary" id="convert">Convertir!</button>
+                            </div>
                         </form>
                     </div>
                 </div>
