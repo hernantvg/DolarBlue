@@ -76,7 +76,7 @@
                 </div>
 
                 <!-- Muestro resultado de conversion -->
-                <div class="card-body">
+                <div id="liveAlertPlaceholder">
                     <p id="result"></p>
                 </div>
 
