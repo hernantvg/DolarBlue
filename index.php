@@ -201,7 +201,7 @@
             }
 
             if (result !== "") {
-                result = `<span class="badge bg-secondary"><h5>${result}</h5></span>`;
+                result = `<span class="badge text-bg-success"><h5>${result}</h5></span>`;
             }
 
             document.getElementById("result").innerHTML = result;
