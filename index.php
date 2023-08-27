@@ -9,6 +9,7 @@
     <meta name="keywords"
         content="valor,precio,cotizacion,cuanto,costo,importe,dolar,blue,paralelo,alternativo,informal,negro,mercado,venta,compra,cambio,moneda,peso,argentina,hoy,minuto,actualizado,conversor,online,convertir,calculadora,u$s,usd">
     <meta name="robots" content="index, follow">
+    <meta name="author" content="cotizaciondolarblue.com">
     <title>USD a ARS | Calculadora de dólar blue a peso argentino - Cotización Dólar Blue Hoy - Precio Dólar Blue Hoy
     </title>
     <link rel="icon" href="img/favicon.ico" type="image/x-icon">
