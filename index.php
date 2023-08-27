@@ -37,7 +37,6 @@
                             actualización: <span id="fechaActualizacion"></span> (GMT-3)
                             <br>
                     </div>
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
     
                     <div class="card bg-light mt-4">
