@@ -44,26 +44,27 @@
         .alert {
             margin: 5px;
         }
+
         #installBox {
-        display: none;
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        max-width: 300px;
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            max-width: 300px;
         }
     </style>
-  <script>
-    window.addEventListener('beforeinstallprompt', (event) => {
-      event.preventDefault(); // Previene que el banner de instalación se muestre automáticamente
-      const installBox = document.getElementById('installBox');
-      installBox.style.display = 'block';
-      
-      installBox.addEventListener('click', () => {
-        event.prompt(); // Muestra el banner de instalación
-        installBox.style.display = 'none';
-      });
-    });
-  </script>
+    <script>
+        window.addEventListener('beforeinstallprompt', (event) => {
+            event.preventDefault(); // Previene que el banner de instalación se muestre automáticamente
+            const installBox = document.getElementById('installBox');
+            installBox.style.display = 'block';
+
+            installBox.addEventListener('click', () => {
+                event.prompt(); // Muestra el banner de instalación
+                installBox.style.display = 'none';
+            });
+        });
+    </script>
     <!-- Adsense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3153959022319427"
         crossorigin="anonymous"></script>
@@ -81,10 +82,10 @@
 <body>
     <div class="container mt-5">
         <div class="card">
-        <div id="installBox" class="alert alert-primary alert-dismissible fade show" role="alert">
-    Instalar App en tu móvil o PC.
-    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Cerrar"></button>
-    </div>
+            <div id="installBox" class="alert alert-primary alert-dismissible fade show" role="alert">
+                Instalar App en tu móvil o PC.
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Cerrar"></button>
+            </div>
             <div class="card-header alert alert-secondary">
                 <h1 class="m-0">Cotización Dólar Blue Hoy</h1>
                 <h6>USD a ARS | Calculadora de dólar blue a peso argentino</h6>
