@@ -247,8 +247,6 @@
                     document.getElementById("estadoAPI").textContent = "Status del servicio: Error al cargar";
                 });
 
-        </script>
-        <script>
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
                 navigator.serviceWorker.register('/sw.js')
