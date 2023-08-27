@@ -46,9 +46,7 @@
         }
 
         #installBox {
-            top: 0;
-            left: 0;
-            width: 100%;
+            width: auto;
             background-color: #007bff;
             color: white;
         }
