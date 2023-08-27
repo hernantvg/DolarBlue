@@ -39,6 +39,7 @@
                             <br>
                         </div>
                     </div>
+                </div>
     
                     <div class="card bg-light mt-4">
                         <div class="card-body">
