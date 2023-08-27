@@ -135,9 +135,10 @@
                             </tbody>
                         </table>
                     </div>
-                    <div role="alert" id="estadoAPI">
+                    <!-- API status -->
+                    <div class="alert alert-primary" role="alert" id="estadoAPI">
                                 Estado de la API: Cargando...
-                            </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -240,11 +241,11 @@
                 .then(response => response.json())
                 .then(data => {
                     const estado = data.estado;
-                    document.getElementById("estadoAPI").textContent = `Status del servicio: ${estado}`;
+                    document.getElementById("estadoAPI").textContent = `servicio: ${estado}`;
                 })
                 .catch(error => {
                     console.error("Error fetching API state:", error);
-                    document.getElementById("estadoAPI").textContent = "Status del servicio: Error al cargar";
+                    document.getElementById("estadoAPI").textContent = "servicio: Error al cargar";
                 });
 
         // PWA
