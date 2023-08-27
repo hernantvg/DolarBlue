@@ -26,10 +26,10 @@
                     <h1 class="m-0">Cotización Dólar Blue Hoy</h1>
                     <h6>USD a ARS | Calculadora de dólar blue a peso argentino</h6>
                 </div>
-                <div class="card-body">
+                <div class="card">
                     <div class="center-box">
-                        <div class="alert alert-primary" role="alert">
-                            <span class="med-text">Cotización actual Dólar Blue</span><br>
+                        <h5 class="card-header">Cotización actual Dólar Blue</h5>
+                        <div class="card-body">
                             <span class="big-text">
                                 Compra: $<span id="compra"></span>
                                 Venta: $<span id="venta"></span>
