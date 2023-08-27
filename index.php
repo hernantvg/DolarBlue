@@ -264,7 +264,7 @@
                     });
             });
         }
-    </script>
+        </script>
     </div>
 </body>
 
