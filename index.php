@@ -60,7 +60,7 @@
                                     </select>
                                 </div>
                                 <div class="d-grid gap-2">
-                                    <button type="button" class="btn btn-primary" id="convert">
+                                    <button type="button" class="btn btn-success" id="convert">
                                         <h4>Convertir <i class="bi bi-currency-dollar"></i></h4>
                                     </button>
                                 </div>
