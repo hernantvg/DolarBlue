@@ -49,7 +49,6 @@
             top: 0;
             left: 0;
             width: 100%;
-            padding: 10px;
             background-color: #007bff;
             color: white;
         }
@@ -83,7 +82,7 @@
 <body>
     <div class="container mt-5">
     <div id="installBox" class="alert alert-primary alert-dismissible fade show" role="alert">
-        Instalar App en tu móvil o PC.
+        Instalar como aplicaciòn en tu móvil.
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Cerrar"></button>
     </div>
         <div class="card">
