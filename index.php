@@ -34,11 +34,7 @@
                                 Compra: $<span id="compra"></span>
                                 Venta: $<span id="venta"></span>
                             </span><br>
-                            Última actualización: <span id="fechaActualizacion"></span><br>
-                            Nota: Hora de Buenos Aires, Argentina (GMT-3).
-                            <div role="alert" id="estadoAPI">
-                                Estado de la API: Cargando...
-                            </div>
+                            Última actualización: <span id="fechaActualizacion"></span> (GMT-3)<br>
                         </div>
                     </div>
     
@@ -48,7 +44,7 @@
                             <p>
                                 Emplea la herramienta de conversión que sigue para estimar el valor del dólar Blue o
                                 paralelo en moneda local argentina y al revés. El tipo de cambio del dólar paralelo se
-                                renueva cada día.
+                                renueva cada hora.
                             </p>
                             <form>
                                 <div class="mb-3">
@@ -139,6 +135,9 @@
                             </tbody>
                         </table>
                     </div>
+                    <div role="alert" id="estadoAPI">
+                                Estado de la API: Cargando...
+                            </div>
                 </div>
             </div>
         </div>
