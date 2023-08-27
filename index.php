@@ -309,6 +309,33 @@
             });
         }
 
+        let deferredPrompt;
+
+        window.addEventListener('beforeinstallprompt', (event) => {
+            event.preventDefault();
+            deferredPrompt = event;
+
+            const installButton = document.getElementById('installButton');
+            installButton.style.display = 'block';
+
+            installButton.addEventListener('click', () => {
+                installButton.style.display = 'none';
+                deferredPrompt.prompt();
+                deferredPrompt.userChoice.then((choiceResult) => {
+                    if (choiceResult.outcome === 'accepted') {
+                        console.log('La PWA ha sido instalada');
+                    } else {
+                        console.log('La instalación de la PWA fue rechazada');
+                    }
+                    deferredPrompt = null;
+                });
+            });
+        });
+
+        window.addEventListener('appinstalled', (event) => {
+            console.log('La PWA ha sido instalada');
+        });
+
     </script>
     </div>
 </body>
