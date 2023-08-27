@@ -1,0 +1,17 @@
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+.center-box {
+    text-align: center;
+}
+
+.med-text {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.big-text {
+    font-size: 32px;
+    font-weight: bold;
+}
