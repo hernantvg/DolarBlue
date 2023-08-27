@@ -48,9 +48,12 @@
         #installBox {
             display: none;
             position: fixed;
-            bottom: 20px;
-            right: 20px;
-            max-width: 300px;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
         }
     </style>
     <script>
@@ -80,12 +83,12 @@
 </head>
 
 <body>
+    <div id="installBox" class="alert alert-primary alert-dismissible fade show" role="alert">
+        Instalar App en tu móvil o PC.
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Cerrar"></button>
+    </div>
     <div class="container mt-5">
         <div class="card">
-            <div id="installBox" class="alert alert-primary alert-dismissible fade show" role="alert">
-                Instalar App en tu móvil o PC.
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Cerrar"></button>
-            </div>
             <div class="card-header alert alert-secondary">
                 <h1 class="m-0">Cotización Dólar Blue Hoy</h1>
                 <h6>USD a ARS | Calculadora de dólar blue a peso argentino</h6>
