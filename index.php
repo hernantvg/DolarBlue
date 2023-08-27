@@ -29,6 +29,7 @@
                 <div class="alert alert-warning alert-dismissible fade show" role="alert">
                     <div class="center-box">
                         <h5>Cotización actual Dólar Blue</h5>
+                        <hr>
                             <span class="big-text">
                                 Compra: $<span id="compra"></span>
                                 Venta: $<span id="venta"></span>
