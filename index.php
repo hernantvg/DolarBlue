@@ -139,7 +139,7 @@
                     </div>
                     <!-- API status -->
                     <br>
-                    <div class="alert alert-primary" role="alert" id="estadoAPI">
+                    <div class="alert alert-light" role="alert" id="estadoAPI">
                                 Estado de la API: Cargando...
                     </div>
                 </div>
