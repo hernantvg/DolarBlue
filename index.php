@@ -44,6 +44,18 @@
             margin: 5px;
         }
     </style>
+    <script>
+    window.addEventListener('beforeinstallprompt', (event) => {
+      event.preventDefault(); // Previene que el banner de instalación se muestre automáticamente
+      const installButton = document.getElementById('installButton');
+      installButton.style.display = 'block';
+      
+      installButton.addEventListener('click', () => {
+        event.prompt(); // Muestra el banner de instalación
+        installButton.style.display = 'none';
+      });
+    });
+    </script>
     <!-- Adsense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3153959022319427"
         crossorigin="anonymous"></script>
@@ -59,7 +71,7 @@
 </head>
 
 <body>
-    <a href="/manifest.json">Instala esta calculadora en tu Movil o PC</a>
+    <a id="installButton" style="display: none;">Instala esta calculadora en tu Movil o PC</a>
     <div class="container mt-5">
         <div class="card">
             <div class="card-header alert alert-secondary">
