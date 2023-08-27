@@ -33,8 +33,10 @@
                             <span class="big-text">
                                 Compra: $<span id="compra"></span>
                                 Venta: $<span id="venta"></span>
-                            </span><br>
-                            Última actualización: <span id="fechaActualizacion"></span> (GMT-3)<br>
+                            </span>
+                            <br>
+                            actualización: <span id="fechaActualizacion"></span> (GMT-3)
+                            <br>
                         </div>
                     </div>
     
