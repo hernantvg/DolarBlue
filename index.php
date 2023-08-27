@@ -35,7 +35,7 @@
             font-size: 32px;
             font-weight: bold;
         }
-        .card {
+        .card, .alert {
             margin: 5px;
         }
     </style>
