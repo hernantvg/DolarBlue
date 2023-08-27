@@ -18,8 +18,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="manifest" href="/manifest.json">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3153959022319427"
-        crossorigin="anonymous"></script>
     <style>
         body {
             font-family: 'Roboto', sans-serif;
@@ -39,6 +37,17 @@
             margin: 5px;
         }
     </style>
+<!-- Adsense -->    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3153959022319427" crossorigin="anonymous"></script>    
+<!-- Google analytics tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-W8ZC9M9NYJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-W8ZC9M9NYJ');
+</script>    
 </head>
 
 <body>
