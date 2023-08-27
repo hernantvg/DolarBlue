@@ -16,6 +16,7 @@
     <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
     <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="manifest" href="/manifest.json">
@@ -43,19 +44,26 @@
         .alert {
             margin: 5px;
         }
+        #installBox {
+        display: none;
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        max-width: 300px;
+        }
     </style>
-    <script>
+  <script>
     window.addEventListener('beforeinstallprompt', (event) => {
       event.preventDefault(); // Previene que el banner de instalación se muestre automáticamente
-      const installButton = document.getElementById('installButton');
-      installButton.style.display = 'block';
+      const installBox = document.getElementById('installBox');
+      installBox.style.display = 'block';
       
-      installButton.addEventListener('click', () => {
+      installBox.addEventListener('click', () => {
         event.prompt(); // Muestra el banner de instalación
-        installButton.style.display = 'none';
+        installBox.style.display = 'none';
       });
     });
-    </script>
+  </script>
     <!-- Adsense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3153959022319427"
         crossorigin="anonymous"></script>
@@ -71,7 +79,10 @@
 </head>
 
 <body>
-    <a id="installButton" style="display: none;">Instala esta calculadora en tu Movil o PC</a>
+    <div id="installBox" class="alert alert-primary alert-dismissible fade show" role="alert">
+    Instala esta calculadora en tu móvil o PC.
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Cerrar"></button>
+    </div>
     <div class="container mt-5">
         <div class="card">
             <div class="card-header alert alert-secondary">
