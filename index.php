@@ -51,29 +51,34 @@
             color: white;
         }
     </style>
-    <script>
-        window.addEventListener('beforeinstallprompt', (event) => {
-        event.preventDefault(); // Previene que el banner de instalación se muestre automáticamente
-        
-        const installBox = document.getElementById('installBox');
-        
-        // Verifica si la PWA ya está instalada
-        window.addEventListener('appinstalled', () => {
-            installBox.style.display = 'none';
-        });
+ <script>
+    let deferredPrompt;
 
-        // Verifica si el banner de instalación se ha mostrado previamente
-        if (!localStorage.getItem('installPromptShown')) {
-            installBox.style.display = 'block';
+    window.addEventListener('beforeinstallprompt', (event) => {
+      event.preventDefault();
+      deferredPrompt = event;
 
-            installBox.addEventListener('click', () => {
-            event.prompt(); // Muestra el banner de instalación
-            installBox.style.display = 'none';
-            localStorage.setItem('installPromptShown', 'true'); // Marca que se ha mostrado el banner
-            });
-        }
+      const installButton = document.getElementById('installButton');
+      installButton.style.display = 'block';
+
+      installButton.addEventListener('click', () => {
+        installButton.style.display = 'none';
+        deferredPrompt.prompt();
+        deferredPrompt.userChoice.then((choiceResult) => {
+          if (choiceResult.outcome === 'accepted') {
+            console.log('La PWA ha sido instalada');
+          } else {
+            console.log('La instalación de la PWA fue rechazada');
+          }
+          deferredPrompt = null;
         });
-    </script>
+      });
+    });
+
+    window.addEventListener('appinstalled', (event) => {
+      console.log('La PWA ha sido instalada');
+    });
+  </script>
     <!-- Adsense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3153959022319427"
         crossorigin="anonymous"></script>
@@ -91,10 +96,9 @@
 <body>
     <div class="container mt-5">
         <div class="card">
-            <div id="installBox" class="alert alert-primary alert-dismissible fade show" role="alert">
-                <i class="bi bi-file-arrow-down"></i> Instalar como aplicaciòn.
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Cerrar"></button>
-            </div>
+        <button id="installButton" class="btn btn-primary">
+        <i class="bi bi-file-arrow-down"></i> Instalar como aplicación
+        </button>
             <div class="card-header alert alert-secondary">
                 <h1 class="m-0">Cotización Dólar Blue Hoy</h1>
                 <h6>USD a ARS | Calculadora de dólar blue a peso argentino</h6>
