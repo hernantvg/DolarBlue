@@ -1,6 +1,12 @@
 body {
     font-family: 'Roboto', sans-serif;
+    background-color: #121212;
+    color: #ffffff;
 }
+.card {
+    background-color: #1e1e1e;
+    color: #ffffff;
+  }
 .center-box {
     text-align: center;
 }
@@ -15,4 +21,12 @@ body {
 .container {
     margin-top: 5px;
     margin: 5px;
+  }
+  /* Estilos para los enlaces en modo oscuro */
+a {
+    color: #6c757d;
+  }
+  
+  a:hover {
+    color: #ffffff;
   }
