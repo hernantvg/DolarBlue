@@ -20,7 +20,7 @@
 </head>
 
 <body>
-    <div class="container-fluid">
+    <div class="container-md">
             <div class="card">
                 <div class="card-header alert alert-secondary">
                     <h1 class="m-0">Cotización Dólar Blue Hoy</h1>

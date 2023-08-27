@@ -6,6 +6,8 @@ body {
 .card {
     background-color: #1e1e1e;
     color: #ffffff;
+    margin-left: 5px;
+    margin-right: 5px;
   }
 .center-box {
     text-align: center;
@@ -18,10 +20,6 @@ body {
     font-size: 32px;
     font-weight: bold;
 }
-div.card {
-    margin-left: 5px;
-    margin-right: 5px;
-  }
   /* Estilos para los enlaces en modo oscuro */
 a {
     color: #6c757d;
