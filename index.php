@@ -17,6 +17,11 @@
     <link rel="manifest" href="/manifest.json">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3153959022319427" crossorigin="anonymous"></script>
+    <style>
+        .card {
+            margin: 5px;
+        }
+    </style>
 </head>
 
 <body>
