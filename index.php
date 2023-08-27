@@ -44,14 +44,6 @@
         .alert {
             margin: 5px;
         }
-
-        #installBox {
-            display: none;
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            z-index: 9999;
-        }
     </style>
 
     <!-- Adsense -->
@@ -71,7 +63,7 @@
 <body>
     <div class="container mt-5">
         <div class="card">
-            <button id="installButton" class="btn btn-primary">
+            <button class="btn btn-primary">
                 <i class="bi bi-file-arrow-down"></i> Instalar como aplicación
             </button>
             <div class="card-header alert alert-secondary">
