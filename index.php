@@ -80,11 +80,11 @@
 
 <body>
     <div class="container mt-5">
-    <div id="installBox" class="alert alert-primary alert-dismissible fade show" role="alert">
-    Instala esta calculadora en tu móvil o PC.
+        <div class="card">
+        <div id="installBox" class="alert alert-primary alert-dismissible fade show" role="alert">
+    Instalar App en tu móvil o PC.
     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Cerrar"></button>
     </div>
-        <div class="card">
             <div class="card-header alert alert-secondary">
                 <h1 class="m-0">Cotización Dólar Blue Hoy</h1>
                 <h6>USD a ARS | Calculadora de dólar blue a peso argentino</h6>
