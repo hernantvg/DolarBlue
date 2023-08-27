@@ -53,20 +53,25 @@
     </style>
     <script>
         window.addEventListener('beforeinstallprompt', (event) => {
-            event.preventDefault(); // Previene que el banner de instalación se muestre automáticamente
-            const installBox = document.getElementById('installBox');
+        event.preventDefault(); // Previene que el banner de instalación se muestre automáticamente
+        
+        const installBox = document.getElementById('installBox');
+        
+        // Verifica si la PWA ya está instalada
+        window.addEventListener('appinstalled', () => {
+            installBox.style.display = 'none';
+        });
 
-            // Verifica si la PWA ya está instalada
-            window.addEventListener('appinstalled', () => {
-                installBox.style.display = 'none';
-            });
-
+        // Verifica si el banner de instalación se ha mostrado previamente
+        if (!localStorage.getItem('installPromptShown')) {
             installBox.style.display = 'block';
 
             installBox.addEventListener('click', () => {
-                event.prompt(); // Muestra el banner de instalación
-                installBox.style.display = 'none';
+            event.prompt(); // Muestra el banner de instalación
+            installBox.style.display = 'none';
+            localStorage.setItem('installPromptShown', 'true'); // Marca que se ha mostrado el banner
             });
+        }
         });
     </script>
     <!-- Adsense -->
