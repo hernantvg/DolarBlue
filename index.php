@@ -80,7 +80,7 @@
     <div class="container mt-5">
         <div class="card">
             <div id="installBox" class="alert alert-primary alert-dismissible fade show" role="alert">
-                Instalar como aplicaciòn en tu móvil.
+            <i class="bi bi-file-arrow-down"></i> Instalar como aplicaciòn en tu móvil.
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Cerrar"></button>
             </div>
             <div class="card-header alert alert-secondary">
