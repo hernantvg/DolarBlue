@@ -70,10 +70,10 @@
 
 <body>
     <div class="container mt-5">
-        <button id="installButton" class="btn btn-primary">
-            <i class="bi bi-file-arrow-down"></i> Instalar como aplicación
-        </button>
         <div class="card">
+            <button id="installButton" class="btn btn-primary">
+                <i class="bi bi-file-arrow-down"></i> Instalar como aplicación
+            </button>
             <div class="card-header alert alert-secondary">
                 <h1 class="m-0">Cotización Dólar Blue Hoy</h1>
                 <h6>USD a ARS | Calculadora de dólar blue a peso argentino</h6>
@@ -315,33 +315,6 @@
                     });
             });
         }
-
-        let deferredPrompt;
-
-        window.addEventListener('beforeinstallprompt', (event) => {
-            event.preventDefault();
-            deferredPrompt = event;
-
-            const installButton = document.getElementById('installButton');
-            installButton.style.display = 'block';
-
-            installButton.addEventListener('click', () => {
-                installButton.style.display = 'none';
-                deferredPrompt.prompt();
-                deferredPrompt.userChoice.then((choiceResult) => {
-                    if (choiceResult.outcome === 'accepted') {
-                        console.log('La PWA ha sido instalada');
-                    } else {
-                        console.log('La instalación de la PWA fue rechazada');
-                    }
-                    deferredPrompt = null;
-                });
-            });
-        });
-
-        window.addEventListener('appinstalled', (event) => {
-            console.log('La PWA ha sido instalada');
-        });
 
     </script>
     </div>
