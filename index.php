@@ -41,7 +41,8 @@
         }
 
         .card,
-        .alert {
+        .alert,
+        .btn {
             margin: 5px;
         }
 
