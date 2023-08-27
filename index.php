@@ -46,9 +46,11 @@
         }
 
         #installBox {
-            width: auto;
-            background-color: #007bff;
-            color: white;
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 9999;
         }
     </style>
  <script>
