@@ -97,10 +97,10 @@
 
 <body>
     <div class="container mt-5">
-        <div class="card">
         <button id="installButton" class="btn btn-primary">
         <i class="bi bi-file-arrow-down"></i> Instalar como aplicación
         </button>
+        <div class="card">
             <div class="card-header alert alert-secondary">
                 <h1 class="m-0">Cotización Dólar Blue Hoy</h1>
                 <h6>USD a ARS | Calculadora de dólar blue a peso argentino</h6>
