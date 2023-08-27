@@ -59,6 +59,7 @@
 </head>
 
 <body>
+    <a href="/manifest.json">Instala esta calculadora en tu Celular</a>
     <div class="container mt-5">
         <div class="card">
             <div class="card-header alert alert-secondary">
