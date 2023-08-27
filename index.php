@@ -59,7 +59,6 @@
 
             installBox.addEventListener('click', () => {
                 event.prompt(); // Muestra el banner de instalación
-                installBox.style.display = 'none';
             });
         });
     </script>
