@@ -84,7 +84,7 @@
                         </div>
                         <div class="d-grid gap-2">
                             <button type="button" class="btn btn-success" id="convert">
-                                <h4>Convertir <i class="bi bi-currency-dollar"></i></h4>
+                                <h4>CONVERTIR <i class="bi bi-currency-dollar"></i></h4>
                             </button>
                         </div>
                     </form>
