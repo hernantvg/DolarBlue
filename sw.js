@@ -4,7 +4,6 @@ self.addEventListener('install', event => {
             return cache.addAll([
                 '/',
                 '/index.php',
-                '/styles.css',
                 // Lista de otros recursos que deseas cachear
             ]);
         })
